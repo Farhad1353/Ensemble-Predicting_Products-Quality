@@ -1,6 +1,10 @@
 import sklearn.datasets
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
+import statsmodels.formula.api as smf
+import statsmodels.api as sm
+from scipy import stats
 from get_colors import colors
 
 def get_classification_data(sd=3, m=10, n_features=2, n_clusters=2, variant='blobs', noise=0, factor=0.1):
@@ -100,8 +104,8 @@ def prune_models(dataframe, response_col_name):
     model_init = smf.ols(formula_string, data=dataframe).fit()  
     pvalues = model_init.pvalues
     max_p = pvalues.idxmax()
-    alpha = 0.05
-    while pvalues.max() > alpha:
+    alpha = 0
+        while pvalues.max() > alpha:
         max_p = pvalues.idxmax()
         cols_no_response.remove(max_p)  
         rest_of_formula_string = " + ".join(cols_no_response)
