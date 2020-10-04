@@ -1,6 +1,8 @@
 # Ensemble-optimisation-using-hyperparameter-and-architecture-search
 This is an ensemble project to establish different Red Wines quality based on 11 different features for each wine given.
 
+https://github.com/Farhad1353/Ensemble-optimisation-using-hyperparameter-and-architecture-search/blob/master/Images/Project_Flowchart.png
+
 In order to execute this project you can run __Main.py__ for a fast result(using Ctrl+F5).
 However, for better visiualization, comments and flowchart diagram I'll certainly recommend to run __Main__.ipynb.
 

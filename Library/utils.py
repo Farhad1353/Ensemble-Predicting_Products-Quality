@@ -104,7 +104,7 @@ def prune_models(dataframe, response_col_name):
     model_init = smf.ols(formula_string, data=dataframe).fit()  
     pvalues = model_init.pvalues
     max_p = pvalues.idxmax()
-    alpha = 0
+    alpha = 0s
         while pvalues.max() > alpha:
         max_p = pvalues.idxmax()
         cols_no_response.remove(max_p)  
