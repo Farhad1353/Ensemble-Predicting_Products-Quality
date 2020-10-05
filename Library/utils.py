@@ -94,24 +94,3 @@ def rgb2gray(rgb_img):
             gray_img[i, j] = (0.3*R) + (0.59*G) + (0.11*B)
     return gray_img   
 
-def prune_models(dataframe, response_col_name):
-      
-    init_formula_string = response_col_name + " ~ "
-    cols_no_response = dataframe.columns.tolist()
-    cols_no_response.remove(response_col_name) 
-    rest_of_formula_string = " + ".join(cols_no_response)   
-    formula_string = init_formula_string + rest_of_formula_string
-    model_init = smf.ols(formula_string, data=dataframe).fit()  
-    pvalues = model_init.pvalues
-    max_p = pvalues.idxmax()
-    alpha = 0s
-        while pvalues.max() > alpha:
-        max_p = pvalues.idxmax()
-        cols_no_response.remove(max_p)  
-        rest_of_formula_string = " + ".join(cols_no_response)
-        formula_string = init_formula_string + rest_of_formula_string    
-        model = smf.ols(formula_string, data=dataframe).fit()
-        pvalues = model.pvalues
-        pvalues = pvalues.drop("Intercept")
-        
-    return model
