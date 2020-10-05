@@ -14,14 +14,20 @@ def plot_models(X, Y, title_name, colour = 'r'):
     plt.ylabel('Accuracy %')
     plt.show()
 
-def hyper_3param_array(param1_start, param1_end, param1_step, \
+def hyper_3_param_array(param1_start, param1_end, param1_step, \
                       param2_start, param2_end, param2_step, \
                       param3_start, param3_end, param3_step):
+    '''
+    hyper_3_param_array function creates a 2 dimension array 
+    which the rows are representing each model to be trained and 
+    the columns are representing each of the 3 HyperParameters 
+    chosen for the training
+    '''
 
     param1_total = int((param1_end + param1_step - param1_start-1)/param1_step)
     param2_total = int((param2_end + param2_step - param2_start-1)/param2_step)
     param3_total = int((param3_end + param3_step - param3_start-1)/param3_step)
-            # calculating the total number of models
+   
     total_models = param1_total * param2_total * param3_total
     param_array = np.ones((total_models, 3), dtype=int)
     param_array_idx = 0
