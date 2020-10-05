@@ -25,6 +25,7 @@ def hyper_3param_array(param1_start, param1_end, param1_step, \
     total_models = param1_total * param2_total * param3_total
     param_array = np.zeros((total_models, 4))
     param_array = param_array.astype(int)
+    param_array[:,3] = param_array[:,3].astype(float)
     param_array_idx = 0
     for param1_value in range(param1_start, param1_end, param1_step):
         for param2_value in range(param2_start, param2_end, param2_step):
