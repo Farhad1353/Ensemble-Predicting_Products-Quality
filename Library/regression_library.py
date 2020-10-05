@@ -23,9 +23,8 @@ def hyper_3param_array(param1_start, param1_end, param1_step, \
     param3_total = int((param3_end + param3_step - param3_start-1)/param3_step)
             # calculating the total number of models
     total_models = param1_total * param2_total * param3_total
-    param_array = np.zeros((total_models, 4))
-    param_array = param_array.astype(int)
-    param_array[:,3] = param_array[:,3].astype(float)
+    param_array = np.ones((total_models, 3), dtype=int)
+    score_array = np.ones((total_models,1), dtype=float)
     param_array_idx = 0
     for param1_value in range(param1_start, param1_end, param1_step):
         for param2_value in range(param2_start, param2_end, param2_step):
@@ -33,9 +32,8 @@ def hyper_3param_array(param1_start, param1_end, param1_step, \
                 param_array[param_array_idx, 0] = int(param1_value)
                 param_array[param_array_idx, 1] = int(param2_value)
                 param_array[param_array_idx, 2] = int(param3_value)
-                param_array_idx+=1
-                
-    return param_array
+                param_array_idx+=1         
+    return param_array, score_array
 
 
 
