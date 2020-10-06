@@ -73,6 +73,8 @@ def low_high_param(mid, step, param=3):
     '''
     if param == 3:
         low = mid - step
+        if mid <= step:
+            low = mid
         high = mid + step + 1
     else:
         low = mid - (step * 2)
