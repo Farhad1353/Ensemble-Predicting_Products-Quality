@@ -65,6 +65,12 @@ def hyper_3_param_array(param1_start, param1_end, param1_step, \
 
 
 def low_high_param(mid, step, param=3):
+    '''
+    low_high_param is a function which sets the lowest and
+    highest figure that we want to tune our HyperParameters
+    by getting the midpoint(which was the best HyperParameters)
+    from previous stage.
+    '''
     if param == 3:
         low = mid - step
         high = mid + step + 1
